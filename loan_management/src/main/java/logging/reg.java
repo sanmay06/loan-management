@@ -51,7 +51,7 @@ public class reg extends HttpServlet {
                 response.getWriter().println("<a href='login'>Login Here</a>");
             }
 
-            response.getWriter().println("<hr><br><br><center><a href='login'>Press here if existing user</a><br></center>");
+            response.getWriter().println("<hr> <br><br><center><a href='login'>Press here if existing user</a><br></center>");
             response.getWriter().println("<center><a href='reg.html'>Press here if you want to create a new user</a><br></center>");
 
             stmt.close();
