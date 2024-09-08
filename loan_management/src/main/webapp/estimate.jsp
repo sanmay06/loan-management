@@ -1,61 +1,160 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
-<%@ page import="jakarta.servlet.http.HttpSession" %>
-<%@ page import="jakarta.servlet.http.Cookie" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import='java.sql.*' %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Loans</title>
-<link rel="stylesheet" href="stylesheet.css">
+<title>Estimate</title>
+<style>
+body {
+    background-color: #F8F9FA;
+    font-family: Lato, sans-serif;
+    color: #333333;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #4682B4;
+    margin: 10px 0;
+    background-color: #1E90FF;
+    padding: 10px;
+}
+
+.menu button, .header button {
+    border-radius: 20px;
+    background-color: #1E90FF;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.menu button:hover, .header button:hover ,.menu .selected {
+    background-color: #FF4500;
+    box-shadow: 0 10px 25px rgba(255, 69, 0, 0.5);
+}
+
+.h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #1E90FF;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td, th {
+    border: 1px solid #4682B4;
+    padding: 10px;
+    text-align: center;
+}
+
+td:hover {
+    background-color: #E8F0FE;
+}
+
+.main {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+input {
+    border: 1px solid #CCCCCC;
+    background-color: #E8F0FE;
+    color: #333333;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    width:750px;
+    max-width: 75%;
+}
+
+.check{
+    width:auto;
+}
+
+input[type='submit'] {
+    background-color: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background-color: #FF4500;
+}
+
+.reg a {
+    color: #FF4500;
+}
+
+.form {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.bor {
+    border-top: 1px solid #CCCCCC;
+    margin-top: 20px;
+}
+
+.span {
+    width:100px;
+}
+
+.text {
+    background-color: #E8F0FE;
+    padding: 20px;
+    border-radius: 10px;
+}
+</style>
 </head>
 <body>
-    <div class='header'>
-        <button onclick="window.location.href='profile'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-            </svg>
-            Profile
+<div class='header'>
+        <button onclick="window.location.href='/loan_management/home'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+</svg>
+            Home
         </button>
-        <div class='h1'>Home</div>
-        <form method='post'>
-            <button type='submit' name='logout'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-                </svg>
-                Log-out
-            </button>
-        </form>
-        <%
-        String button = request.getParameter("logout");
-        if (button != null) {
-            Cookie[] cookies = request.getCookies();
-            if (cookies != null) {
-                for (Cookie cookie : cookies) {
-                    if (cookie.getName().equals("projuser")) { 
-                        cookie.setPath("/");
-                        cookie.setValue("loggedout");
-                        cookie.setMaxAge(1000); 
-                        response.addCookie(cookie);
-                    }
-                }
-            }
-            HttpSession s = request.getSession(false);
-            if (s != null) {
-                s.invalidate();
-            }
-            response.sendRedirect("login");
-        }
-        %>
-    </div>
-    <div class='menu'>
+        <div class='h1'>Estimate  </div>
+        <div class='span'></div>
+        </div>
+	<div class='menu'>
         <button onclick="window.location.href='/loan_management/home/insert.html'">Insert</button>
         <button onclick="window.location.href='/loan_management/home/update'">Update</button>
         <button onclick="window.location.href='/loan_management/home/delete'">Delete</button>
         <button onclick="window.location.href='/loan_management/home/InsertPayment.html'">Insert Payment</button>
-        <button onclick="window.location.href='/loan_management/home/estimate'">estimate</button>
+        <button class='select' onclick="window.location.href='/loan_management/home/estimate'">estimate</button>
     </div>
+    <section class='form'>
+    	<form action='estimation' method=post>
+    	Enter the Loan Id:<br>
+    	<input type='text' name='loanid'><br>
+    	<input type='submit' value='submit'>
+    	</form>
+    </section>
     <h2>Loans</h2>
     <section class='table'>
         <%

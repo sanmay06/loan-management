@@ -38,7 +38,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>insloan</servlet-name>
-    <jsp-file>/insert.jsp</jsp-file>
+    <jsp-file>/loan/insert.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>insloan</servlet-name>
@@ -54,7 +54,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>profilesave</servlet-name>
-    <jsp-file>/saveProfile.jsp</jsp-file>
+    <jsp-file>/loan/saveProfile.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>profilesave</servlet-name>
@@ -62,7 +62,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>updateloan</servlet-name>
-    <jsp-file>/update.jsp</jsp-file>
+    <jsp-file>/loan/update.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>updateloan</servlet-name>
@@ -70,7 +70,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>deleteloan</servlet-name>
-    <jsp-file>/delete.jsp</jsp-file>
+    <jsp-file>/loan/delete.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>deleteloan</servlet-name>
@@ -78,7 +78,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>updating</servlet-name>
-    <jsp-file>/updated.jsp</jsp-file>
+    <jsp-file>/loan/updated.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>updating</servlet-name>
@@ -86,10 +86,34 @@
   </servlet-mapping>
     <servlet>
     <servlet-name>deleting</servlet-name>
-    <jsp-file>/deleting.jsp</jsp-file>
+    <jsp-file>/loan/deleting.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>deleting</servlet-name>
     <url-pattern>/home/deleting</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>insP</servlet-name>
+    <jsp-file>/payment/insert.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insP</servlet-name>
+    <url-pattern>/home/insP</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>est</servlet-name>
+    <jsp-file>/estimatetime.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>est</servlet-name>
+    <url-pattern>/home/estimation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>estimate</servlet-name>
+    <jsp-file>/estimate.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>estimate</servlet-name>
+    <url-pattern>/home/estimate</url-pattern>
   </servlet-mapping>
 </web-app>

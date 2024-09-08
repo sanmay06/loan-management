@@ -145,6 +145,8 @@ input[type='submit']:hover {
         <button onclick="window.location.href='/loan_management/home/insert.html'">Insert</button>
         <button onclick="window.location.href='/loan_management/home/update'">Update</button>
         <button class='selected' onclick="window.location.href='/loan_management/home/delete'">Delete</button>
+    	<button onclick="window.location.href='/loan_management/home/InsertPayment.html'">Insert Payment</button>
+   		<button onclick="window.location.href='/loan_management/home/estimate'">estimate</button>
     </section>
     <section class='form'>
     <form action='deleting' method='post'>
@@ -177,6 +179,8 @@ input[type='submit']:hover {
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Remaining Balance</th>
+                    <th>Loan Term</th>
+                    <th>Loan Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -190,6 +194,8 @@ input[type='submit']:hover {
                     <td><%= rs.getString(5) %></td>
                     <td><%= rs.getString(6) %></td>
                     <td><%= rs.getString(7) %></td>
+                    <td><%= rs.getString(8) %></td>
+                    <td><%= rs.getString(9) %></td>
                 </tr>
         <%
             }
@@ -201,7 +207,7 @@ input[type='submit']:hover {
             if (con != null) try { con.close(); } catch (SQLException ignore) {}
         }
         %>
-        </tbody>
+            </tbody>
         </table>
     </section>
 </body>

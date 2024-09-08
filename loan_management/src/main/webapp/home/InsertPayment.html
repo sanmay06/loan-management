@@ -17,23 +17,20 @@
         <div class='span'></div>
         </div>
     <section class='menu'>
-        <button class='selected' onclick="window.location.href='/loan_management/home/insert.html'">Insert</button>
+        <button onclick="window.location.href='/loan_management/home/insert.html'">Insert</button>
         <button onclick="window.location.href='/loan_management/home/update'">Update</button>
         <button onclick="window.location.href='/loan_management/home/delete'">Delete</button>
-    	<button onclick="window.location.href='/loan_management/home/InsertPayment.html'">Insert Payment</button>
-    	<button onclick="window.location.href='/loan_management/home/estimate'">estimate</button>
+    	<button class='selected' onclick="window.location.href='/loan_management/home/InsertPayment.html'">Insert Payment</button>
+   		<button onclick="window.location.href='/loan_management/home/estimate'">estimate</button>
     </section>
     <section class='main'>
     <div class='form'>
-    	<form action='ins' method='post'>
+    	<form action='insP' method='post'>
     		Enter Loan ID:<br><input type='text' name='loanid' required><br>
-    		Enter Loan Amount:<br><input type='number' name='amount' required><br>
-    		Interest Rate: <br><input type='number' name='interest' step="0.01" required><br>
-    		Start Date: <br><input type='date' name='start' required><br>
-    		End Date: <br><input type='date' name='end' required><br>
-    		Enter Remaining Amount: <br><input type="number" name='remain'step="0.01" required><br>
-    		Enter the Loan Term: <br><input type='number' name='term' required><br>
-    		Enter the Loan Status: <br><input type='text' name='status' required><br>
+    		Enter Payment Amount:<br><input type='number' name='amount' required><br>
+    		Enter Payment Date: <br><input type='date' name='date' required><br>
+    		Enter Payment Type: <br><input type='text' name='type' required><br>
+    		Enter Payment Status: <br><input type="text" name='status' required><br>
     		<center><input type='submit' value='Submit'></center>
     	</form>
     </div>

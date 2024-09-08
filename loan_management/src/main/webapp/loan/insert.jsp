@@ -14,16 +14,19 @@
     String remainStr = request.getParameter("remain");
     String start = request.getParameter("start");
     String end = request.getParameter("end");
+    String termstr = request.getParameter("term");
+    String status = request.getParameter("status");
 
-    if (loanId != null && amountStr != null && interestStr != null && remainStr != null && start != null && end != null) {
+    if (loanId != null && amountStr != null && interestStr != null && remainStr != null && start != null && end != null && termstr != null) {
         try {
             int amount = Integer.parseInt(amountStr);
             BigDecimal interest = new BigDecimal(interestStr);
             BigDecimal remaining = new BigDecimal(remainStr);
+            int term = Integer.parseInt(termstr);
             Date startDate = Date.valueOf(start);
             Date endDate = Date.valueOf(end);
 
-            String query = "INSERT INTO loan () VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO loan () VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
             Connection con = null;
             PreparedStatement stmt = null;
@@ -38,6 +41,8 @@
                 stmt.setDate(5, startDate);
                 stmt.setDate(6, endDate);
                 stmt.setBigDecimal(7, remaining);
+                stmt.setInt(8,term);
+                stmt.setString(9, status);
                 stmt.executeUpdate();
                 response.sendRedirect("/loan_management/home"); 
             } catch (SQLException e) {

@@ -145,11 +145,15 @@ input[type='submit']:hover {
         <button onclick="window.location.href='/loan_management/home/insert.html'">Insert</button>
         <button class='selected' onclick="window.location.href='/loan_management/home/update'">Update</button>
         <button onclick="window.location.href='/loan_management/home/delete'">Delete</button>
+    	<button onclick="window.location.href='/loan_management/home/InsertPayment.html'">Insert Payment</button>
+    	<button onclick="window.location.href='/loan_management/home/estimate'">estimate</button>
     </section>
     <section class='form'>
     <form action='updated' method="post">
         Enter the LoanID to be updated:<br><input type='text' name ='loanid' required><br>
-        Enter the updated Remaining Balance:<br><input type='text' name ='balance' required><br>
+        Enter the updated Remaining Balance:<br><input type='text' name ='balance' ><br>
+        Enter the updated Interest Rate:<br><input type='text' name ='interest' ><br>
+        Enter the updated Loan Status:<br><input type='text' name ='LoanStatus' ><br>
         <input type='submit' value='Submit'>
     </form>
     </section>
@@ -177,6 +181,8 @@ input[type='submit']:hover {
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Remaining Balance</th>
+                    <th>Loan Term</th>
+                    <th>Loan Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -190,6 +196,8 @@ input[type='submit']:hover {
                     <td><%= rs.getString(5) %></td>
                     <td><%= rs.getString(6) %></td>
                     <td><%= rs.getString(7) %></td>
+                    <td><%= rs.getString(8) %></td>
+                    <td><%= rs.getString(9) %></td>
                 </tr>
         <%
             }
@@ -201,7 +209,7 @@ input[type='submit']:hover {
             if (con != null) try { con.close(); } catch (SQLException ignore) {}
         }
         %>
-        </tbody>
+            </tbody>
         </table>
     </section>
 </body>
