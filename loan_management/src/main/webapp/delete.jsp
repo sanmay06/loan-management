@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.* " %>
+<%@ page import='java.sql.*' %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>update</title>
+<title>delete</title>
 <style>
 body {
     background-color: #F8F9FA;
@@ -138,19 +138,19 @@ input[type='submit']:hover {
             </svg>
             Home
         </button>
-        <div class='h1'>Insert  </div>
+        <div class='h1'>delete</div>
         <div class='span'></div>
     </div>
     <section class='menu'>
         <button onclick="window.location.href='/loan_management/home/insert.html'">Insert</button>
-        <button class='selected' onclick="window.location.href='/loan_management/home/update'">Update</button>
-        <button onclick="window.location.href='/loan_management/home/delete'">Delete</button>
+        <button onclick="window.location.href='/loan_management/home/update'">Update</button>
+        <button class='selected' onclick="window.location.href='/loan_management/home/delete'">Delete</button>
     </section>
     <section class='form'>
-    <form action='updated' method="post">
-        Enter the LoanID to be updated:<br><input type='text' name ='loanid' required><br>
-        Enter the updated Remaining Balance:<br><input type='text' name ='balance' required><br>
-        <input type='submit' value='Submit'>
+    <form action='deleting' method='post'>
+    	Enter the Loan ID to delete<br>
+    	<input type='text' name='loanid' required>
+    	<input type='submit' value='submit'>
     </form>
     </section>
     <section class='table'>
