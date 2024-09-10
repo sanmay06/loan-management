@@ -54,7 +54,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>profilesave</servlet-name>
-    <jsp-file>/loan/saveProfile.jsp</jsp-file>
+    <jsp-file>/saveProfile.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>profilesave</servlet-name>
