@@ -102,7 +102,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>est</servlet-name>
-    <jsp-file>/estimatetime.jsp</jsp-file>
+    <jsp-file>/payment/estimatetime.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>est</servlet-name>
@@ -110,7 +110,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>estimate</servlet-name>
-    <jsp-file>/estimate.jsp</jsp-file>
+    <jsp-file>/payment/estimate.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>estimate</servlet-name>
